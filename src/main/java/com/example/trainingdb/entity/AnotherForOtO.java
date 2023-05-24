@@ -7,13 +7,10 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-@Table(name="for_oto")
-public class ForOtO {
+@Table(name="a_for_oto")
+public class AnotherForOtO {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
     private String title;
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "another_id")
-    private AnotherForOtO anotherForOtO;
 }

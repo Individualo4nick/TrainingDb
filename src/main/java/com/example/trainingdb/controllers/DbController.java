@@ -25,4 +25,15 @@ public class DbController {
         dbService.deleteOtO(id);
         return "successful";
     }
+    @GetMapping(value = "/create_mto")
+    public String createMtO(){
+        dbService.saveMtO();
+        return "successful";
+    }
+    @GetMapping(value="/delete_mto")
+    @ResponseBody
+    public String deleteMtO(@RequestParam int id){
+        dbService.deleteMtO(id);
+        return "successful";
+    }
 }

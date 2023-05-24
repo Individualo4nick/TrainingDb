@@ -43,6 +43,20 @@ public class DbService {
         repoForOtO.deleteById(id);
     }
     public void saveMtO(){
+//        ForMtO forMtO = new ForMtO();
+//        forMtO.setTitle("another_example1");
+//        ForMtO forMtO1 = new ForMtO();
+//        forMtO1.setTitle("another_example1");
+//        ForOtM forOtM = new ForOtM();
+//        forOtM.setTitle("example1");
+//        forMtO.setForOtM(forOtM);
+//        forMtO1.setForOtM(forOtM);
+//        List<ForMtO> list = new ArrayList<>();
+//        list.add(forMtO);
+//        list.add(forMtO1);
+//        forOtM.setList(list);
+//        repoForMtO.save(forMtO);
+//        repoForMtO.save(forMtO1);
         ForMtO forMtO = new ForMtO();
         forMtO.setTitle("another_example1");
         ForMtO forMtO1 = new ForMtO();
@@ -55,8 +69,7 @@ public class DbService {
         list.add(forMtO);
         list.add(forMtO1);
         forOtM.setList(list);
-        repoForMtO.save(forMtO);
-        repoForMtO.save(forMtO1);
+        repoForOtM.save(forOtM);
     }
     public void deleteMtO(int id){
         try {
@@ -66,5 +79,11 @@ public class DbService {
             System.out.println("Отловлена ошибка, так как происходит нарушение ограничения внешнего ключа");
         }
         repoForMtO.deleteById(id);
+    }
+    public void saveMtM() {
+
+    }
+    public void deleteMtM(int id) {
+
     }
 }

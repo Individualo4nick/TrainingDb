@@ -36,4 +36,15 @@ public class DbController {
         dbService.deleteMtO(id);
         return "successful";
     }
+    @GetMapping(value = "/create_mtm")
+    public String createMtM(){
+        dbService.saveMtM();
+        return "successful";
+    }
+    @GetMapping(value="/delete_mtm")
+    @ResponseBody
+    public String deleteMtM(@RequestParam int id){
+        dbService.deleteMtM(id);
+        return "successful";
+    }
 }

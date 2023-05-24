@@ -16,6 +16,6 @@ public class ForOtM {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
     private String title;
-    @OneToMany(mappedBy = "forOtM")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "forOtM")
     private List<ForMtO> list;
 }

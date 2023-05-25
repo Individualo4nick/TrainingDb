@@ -1,13 +1,7 @@
 package com.example.trainingdb.service;
 
-import com.example.trainingdb.entity.AnotherForOtO;
-import com.example.trainingdb.entity.ForMtO;
-import com.example.trainingdb.entity.ForOtM;
-import com.example.trainingdb.entity.ForOtO;
-import com.example.trainingdb.repo.RepoForAnOtO;
-import com.example.trainingdb.repo.RepoForMtO;
-import com.example.trainingdb.repo.RepoForOtM;
-import com.example.trainingdb.repo.RepoForOtO;
+import com.example.trainingdb.entity.*;
+import com.example.trainingdb.repo.*;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -19,11 +13,13 @@ public class DbService {
     private final RepoForAnOtO repoForAnOtO;
     private final RepoForOtM repoForOtM;
     private final RepoForMtO repoForMtO;
-    public DbService(RepoForOtO repoForOtO, RepoForAnOtO repoForAnOtO, RepoForOtM repoForOtM, RepoForMtO repoForMtO){
+    private final RepoForMtM repoForMtM;
+    public DbService(RepoForOtO repoForOtO, RepoForAnOtO repoForAnOtO, RepoForOtM repoForOtM, RepoForMtO repoForMtO, RepoForMtM repoForMtM){
         this.repoForOtO = repoForOtO;
         this.repoForAnOtO = repoForAnOtO;
         this.repoForOtM = repoForOtM;
         this.repoForMtO = repoForMtO;
+        this.repoForMtM = repoForMtM;
     }
     public void saveOtO(){
         AnotherForOtO anotherForOtO = new AnotherForOtO();
@@ -44,11 +40,11 @@ public class DbService {
     }
     public void saveMtO(){
 //        ForMtO forMtO = new ForMtO();
-//        forMtO.setTitle("another_example1");
+//        forMtO.setTitle("another_example2");
 //        ForMtO forMtO1 = new ForMtO();
-//        forMtO1.setTitle("another_example1");
+//        forMtO1.setTitle("another_example2");
 //        ForOtM forOtM = new ForOtM();
-//        forOtM.setTitle("example1");
+//        forOtM.setTitle("example2");
 //        forMtO.setForOtM(forOtM);
 //        forMtO1.setForOtM(forOtM);
 //        List<ForMtO> list = new ArrayList<>();
@@ -58,11 +54,11 @@ public class DbService {
 //        repoForMtO.save(forMtO);
 //        repoForMtO.save(forMtO1);
         ForMtO forMtO = new ForMtO();
-        forMtO.setTitle("another_example1");
+        forMtO.setTitle("another_example2");
         ForMtO forMtO1 = new ForMtO();
-        forMtO1.setTitle("another_example1");
+        forMtO1.setTitle("another_example2");
         ForOtM forOtM = new ForOtM();
-        forOtM.setTitle("example1");
+        forOtM.setTitle("example2");
         forMtO.setForOtM(forOtM);
         forMtO1.setForOtM(forOtM);
         List<ForMtO> list = new ArrayList<>();
@@ -81,9 +77,25 @@ public class DbService {
         repoForMtO.deleteById(id);
     }
     public void saveMtM() {
-
+        AnotherForMtM anotherForMtM = new AnotherForMtM();
+        anotherForMtM.setTitle("another_example3");
+        AnotherForMtM anotherForMtM1 = new AnotherForMtM();
+        anotherForMtM1.setTitle("another_example3");
+        ForMtM forMtM = new ForMtM();
+        forMtM.setTitle("example3");
+        ForMtM forMtM1 = new ForMtM();
+        forMtM1.setTitle("example3");
+        List<AnotherForMtM> list = new ArrayList<>();
+        list.add(anotherForMtM);
+        list.add(anotherForMtM1);
+        List<ForMtM> list1 = new ArrayList<>();
+        list1.add(forMtM);
+        list1.add(forMtM1);
+        forMtM.setList(list);
+        anotherForMtM.setList(list1);
+        repoForMtM.save(forMtM);
     }
     public void deleteMtM(int id) {
-
+        repoForMtM.deleteById(id);
     }
 }
